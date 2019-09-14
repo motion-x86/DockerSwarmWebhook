@@ -27,7 +27,7 @@ namespace WebHooks
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseContentRoot(Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location))
                 .UseStartup<Startup>()
                 .UseUrls($"http://*:{LISTENING_PORT}")
                 .UseStartup<Startup>();

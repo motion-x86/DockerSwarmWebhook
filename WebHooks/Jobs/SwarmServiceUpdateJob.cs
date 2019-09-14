@@ -16,7 +16,7 @@ namespace WebHooks.Jobs
             ServiceName = config.Services[image];
 
             LoginCommand = $"docker login -u \"{config.Username}\" -p \"{config.Password}\" {config.Registry}";
-            UpdateCommand = $"docker service update --force {ServiceName} --with-registry-auth --image={image}";
+            UpdateCommand = $"docker service update --force {ServiceName} --with-registry-auth --image={config.Registry}/{image}";
         }
 
         public void Run()

@@ -36,7 +36,7 @@ namespace DockerWebHook.Controllers
                 return BadRequest();
             }
 
-            logger.LogInformation($"WebHook Request Failed: Invalid image [{image}]");
+            logger.LogInformation($"WebHook Request Succeeded: For image [{image}]");
             Program.DeploymentQueue.AddJob(new SwarmServiceUpdateJob(config, payload));
 
             return Ok();
